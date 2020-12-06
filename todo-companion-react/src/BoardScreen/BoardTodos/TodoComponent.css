@@ -1,0 +1,36 @@
+.todoComponent {
+  background-color: white;
+  margin-top: 15px;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-all;
+}
+.todoComponent p {
+  word-break: break-all;
+}
+
+.dontShow {
+  display: none !important;
+}
+
+.todo__editIcon {
+  font-size: 5px;
+  color: orange;
+}
+
+.pending {
+  background-color: lightyellow;
+}
+.ongoing {
+  background-color: lightblue;
+}
+.done {
+  background-color: lightgreen;
+}
+.emergency {
+  background-color: orangered;
+  color: white;
+}

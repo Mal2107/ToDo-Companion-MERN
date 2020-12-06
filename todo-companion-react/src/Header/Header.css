@@ -1,0 +1,70 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 7vh;
+  background: rgb(241, 242, 181);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 242, 181, 1) 0%,
+    rgba(19, 80, 88, 1) 100%
+  );
+  color: white;
+}
+.header__menuIcon {
+  color: white;
+}
+
+.header__chatIcon {
+  color: white;
+}
+
+.MuiIconButton-root {
+  background-color: white;
+  color: white;
+  box-shadow: 0px 0px 7px 1px #ffffff;
+}
+
+.header__left {
+  width: 15vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__left > p {
+  font-weight: bold;
+  font-size: 50px;
+  color: rgba(19, 80, 88, 1);
+}
+
+.header__logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+.header__right {
+  margin-right: 20px;
+  width: 15vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile__image {
+  margin-right: 10px;
+  box-shadow: 0px 0px 7px 1px #ffffff;
+}
+
+.profile__image {
+  margin-right: 10px;
+}

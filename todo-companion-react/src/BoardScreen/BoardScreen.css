@@ -1,0 +1,13 @@
+.boardScreen {
+  margin-top: 9vh;
+  height: 91vh;
+  max-height: 91vh;
+  background: rgb(97, 97, 97);
+  background: rgb(241, 242, 181);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 242, 181, 1) 0%,
+    rgba(19, 80, 88, 1) 100%
+  );
+  overflow-x: hidden;
+}
