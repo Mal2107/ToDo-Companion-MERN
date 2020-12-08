@@ -62,8 +62,6 @@ io.on('connection',(socket)=>{
         socket.to(data.boardID).emit('updateTodos',data);
     });
 
-
-
     socket.on('newList',(data)=>{
         console.log("websocket ",data);
         socket.to(data.boardID).emit('updateLists',data);
@@ -87,7 +85,9 @@ io.on('connection',(socket)=>{
 
     //auth API's
     app.post('/signUp',(req,res)=>{
+        const newListId = new idgen();
         const auth = req.body;
+        auth._id = newListId;
         console.log(auth.userName);
         console.log(auth.pwd);
         User.find({'userName':auth.userName},(err,data)=>{
@@ -103,10 +103,7 @@ io.on('connection',(socket)=>{
                         if(err){
                             res.status(500).send(err);
                         }else{
-                            res.status(201).send(res.status(201).send({
-                                "authStatus":1,
-                                "data":"Added" //user added to mongo db
-                            }));
+                            res.status(201).send(newListId)
                         }
                     });   
                 }
@@ -138,7 +135,6 @@ io.on('connection',(socket)=>{
     app.post('/createNewBoard',(req,res)=>{
         const data = req.body;
         console.log(data);
-        console.log(data.todoLists[0].todos[0]);
         Board.create(data,(err,data)=>{
             if(err){
                 res.status(500).send(err);

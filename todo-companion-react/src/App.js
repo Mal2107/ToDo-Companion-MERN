@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       
       <Router>
-        <Header/>
         <Switch>
           {/* Sign in  */}
           <Route exact path = "/"> 

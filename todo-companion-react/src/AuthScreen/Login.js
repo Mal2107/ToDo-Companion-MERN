@@ -2,14 +2,13 @@ import {React , useState} from 'react'
 import './Login.css';
 import {Link, useHistory} from 'react-router-dom';
 import axios from '../axios.js';
+import Header from '../Header/Header';
 
 export default function Login() {
 
     const [userName, setuserName] = useState("");
     const [pwd, setpwd] = useState("");
     const [authErr, setauthErr] = useState("");
-
-    
 
     const history = useHistory();
 
@@ -50,6 +49,7 @@ export default function Login() {
 
     return (
         <div className="login">
+            <Header />
             <div className="login__signIn">
                 <form>
                     <h1>Sign In </h1>

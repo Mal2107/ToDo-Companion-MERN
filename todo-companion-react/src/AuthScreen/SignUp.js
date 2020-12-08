@@ -1,13 +1,15 @@
 import {React , useState} from 'react'
 import './Login.css';
-import {Link} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 import axios from '../axios.js';
+import Header from '../Header/Header';
 
 function SignUp() {
     const [userName, setuserName] = useState("");
     const [pwd, setpwd] = useState("");
     const [authErr, setauthErr] = useState("");
 
+    const history = useHistory();
 
     const updateUserName = (e) =>{
         setuserName(e.target.value);
@@ -28,6 +30,11 @@ function SignUp() {
             if(res.data.authStatus===2){
                 console.log("User name is taken");
                 setauthErr("User name is taken!!");
+            }else{
+                history.push({
+                    pathname: '/myBoards',
+                    state: { userUid: res.data[0]._id, userName:userName }
+                });
             }
         }catch(e){
             console.log("Http request failed")
@@ -35,6 +42,7 @@ function SignUp() {
     }
     return (
         <div className="login">
+            <Header />
             <div className="login__signIn">
                 <form>
                     <h1>Sign Up </h1>

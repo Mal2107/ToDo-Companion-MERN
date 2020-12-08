@@ -8,6 +8,7 @@ import {IconButton}  from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { v4 as uuidv4 } from 'uuid';
 import {socket} from '../../socket';
+import Header from '../../Header/Header';
 
 
 function BoardTodos({boardID}) {
@@ -22,6 +23,7 @@ function BoardTodos({boardID}) {
     var listsCopyVar = [];
 
     const listData = useRef([]);
+    const mongoData = useRef([]);
 
     useEffect(async ()=>{    
     
@@ -42,7 +44,7 @@ function BoardTodos({boardID}) {
         
         //taking the data about the todo lists from the entire board data
         listsCopyVar = res.data[0].todoLists;
-
+        mongoData.current = res.data[0];
         listData.current = res.data[0].todoLists;
 
         setlists(res.data[0].todoLists); 
@@ -127,7 +129,6 @@ function BoardTodos({boardID}) {
 
         setlists(listData.current);
 
-        console.log("List copy var ka value is ",listData.current);
 
         socket.emit('newList',{
                 "boardID":boardID.substring(1,boardID.length),
@@ -150,10 +151,10 @@ function BoardTodos({boardID}) {
 
     return (
         <div className = "boardTodos">
-            
+                <Header boardID ={mongoData.current._id} boardName={mongoData.current.boardName} boardDesc={mongoData.current.boardDesc} boardCreator={mongoData.current.boardCreator}/>
                 {lists.length===0?(
                     <div className="boardTodo__listDiv">
-                        <p>Getting your data</p>
+                        <p>No data available!!!!!!!!</p>
                     </div>
                 ):(
                             lists.map((list)=>(

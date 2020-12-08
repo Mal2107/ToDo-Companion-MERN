@@ -17,6 +17,7 @@ function BoardScreen() {
     return (
         <div className = "boardScreen">
             <BoardTodos boardID={params.id}/>
+            
         </div>
     )
 }
